@@ -1,0 +1,64 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
+    background-color: #282828;
+
+}
+.congratulate{
+    position: absolute;
+    padding: 0px 81px;
+    top: 42%;
+    font-size: 75px;
+    font-style: revert;
+    color: white;
+    cursor: pointer;
+    background-color: #886ce4;
+    opacity: 0.9;
+    border: 5px solid #ffffff;
+}
+.emoji{
+    padding-bottom: 20px;
+    font-size: 32px;
+}
+.container{
+    padding: 20px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid #000;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-content: space-around;
+    justify-content: space-evenly;
+    background-color: #cfcfcf;
+    border-radius: 20px;
+    position: relative;
+}
+.card{
+    border: 2px solid #000000;
+    border-radius: 10px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffffff;
+
+}
+.item{
+    opacity: 0;
+}
+.action .item{
+    opacity: 0.5;
+}
+.card span{
+    font-size: 47px;
+    user-select: none;
+}
+
+.identity .item{
+    opacity: 1;
+}
+
