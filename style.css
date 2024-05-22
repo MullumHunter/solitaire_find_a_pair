@@ -61,4 +61,7 @@ body{
 .identity .item{
     opacity: 1;
 }
+.emoji-identity{
+    opacity: 0.1;
+}
 

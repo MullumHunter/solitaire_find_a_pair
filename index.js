@@ -3,12 +3,21 @@ const emoji = ['🐸', '👾', '👁️', '🐋', '🍕', '🔥', '🐞', '🎱'
 const emojiConfig = (emoji.join(' ') + " ").repeat(2).trim().split(' ');
 const sizeMap = 4;
 const matrix = new Array(sizeMap).fill(0).map(() => new Array(sizeMap).fill(0));
+const emojiBlok = document.querySelector('.emoji')
 let comparedCards = [];
 let identityCounter = 0;
 let tumeoutId;
+const titleEmoji = document.querySelector('.emoji')
 
-
-
+function createTitleEmoji() {
+    emoji.forEach(i => {
+        emojiBlok.innerHTML += `
+    <span class="emoji-item ${i}">${i}</span>
+    `
+    })
+    console.log('сделанно')
+}
+createTitleEmoji()
 createMap()
 function createMap() {
     emojiConfig.sort(() => Math.random() - 0.5)
@@ -52,15 +61,23 @@ function clearTimeOut(){
     comparedCards.length = [];
 }
 function click(note){
+
     let num = note.classList.length
     if(num < 2){
         note.classList.add('action')
         comparedCards.push(note)
         if(comparedCards.length === 2){
             if(getEmpjiFromNote(comparedCards[0]) === getEmpjiFromNote(comparedCards[1])) {
-                comparedCards.forEach(i => i.classList.add('identity'))
+               let findEmoji = getEmpjiFromNote(comparedCards[0])
+                console.log(findEmoji)
+                    let findEmojiTitle = document.querySelector(`.${findEmoji}`)
+                        if(findEmoji === findEmojiTitle.textContent) {
+                            findEmojiTitle.classList.add('emoji-identity')
+                        }
+                        comparedCards.forEach(i => {
+                        i.classList.add('identity')
+                    })
                 identityCounter +=1
-                console.log(identityCounter)
                 comparedCards.length = [];
                 if(identityCounter === 8){
                     console.log('88888')
@@ -81,18 +98,19 @@ function congratulate(){
    const textCongratulate = document.createElement('div');
     textCongratulate.classList.add('congratulate');
 
-
-
         textCongratulate.innerHTML =`
         <div>VICTORY</div>
         `
         document.querySelector('.container').append(textCongratulate);
 
+
         textCongratulate.addEventListener('click', () => {
             document.querySelector('.container').innerHTML = '';
+            document.querySelector('.emoji').innerHTML = ``
             matrix.forEach(i => (i.forEach(j => {
 
             })))
+            createTitleEmoji()
             createMap();
         });
 }
