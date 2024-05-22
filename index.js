@@ -43,6 +43,8 @@ function createEmojiCard(item) {
     <span class="item"> ${item} </span>
     `
     document.querySelector('.container').append(note);
+
+
     note.addEventListener('click', () => clickChekc());
 
     function clickChekc(){

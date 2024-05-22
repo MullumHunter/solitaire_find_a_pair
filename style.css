@@ -37,21 +37,29 @@ body{
     position: relative;
 }
 .card{
-    border: 2px solid #000000;
-    border-radius: 10px;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     background-color: #ffffff;
-
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+    transform: rotateY(180deg);
+    transition: .3s ease-in-out;
+}
+.card.action {
+    transform: rotateY(0deg);
 }
 .item{
-    opacity: 0;
+    font-size: 48px;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: .3s ease-in-out ;
 }
-.action .item{
-    opacity: 0.5;
+.card.action .item {
+    transform: rotateY(0deg);
 }
 .card span{
     font-size: 47px;
